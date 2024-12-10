@@ -1,13 +1,13 @@
 {
     "app": {
-        "title": "Habla con tus datos",
-        "footer": "Creado con Azure AI Search + Azure OpenAI",
+        "title": "Asistente de voz con IA",
+        "footer": "Creado por IMD, impulsado por GPT-4o y Azure",
         "stopRecording": "Detener grabación",
         "startRecording": "Comenzar grabación",
         "stopConversation": "Detener conversación"
     },
     "status": {
-        "notRecordingMessage": "Pregunta cualquier cosa sobre los beneficios de los empleados de Contoso",
+        "notRecordingMessage": "Pregúntame lo que quieras",
         "conversationInProgress": "Conversación en progreso"
     },
     "history": {

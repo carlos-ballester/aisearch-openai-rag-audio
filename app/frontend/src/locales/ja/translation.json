@@ -1,13 +1,13 @@
 {
     "app": {
-        "title": "データと話す",
-        "footer": "Azure AI Search + Azure OpenAI で構築",
+        "title": "AI パワード ボイス アシスタント",
+        "footer": "IMD が作成、GPT-4o と Azure が提供",
         "stopRecording": "録音を停止",
         "startRecording": "録音を開始",
         "stopConversation": "会話を停止"
     },
     "status": {
-        "notRecordingMessage": "Contoso 従業員の福利厚生について質問してください",
+        "notRecordingMessage": "何でも聞いてください",
         "conversationInProgress": "会話が進行中"
     },
     "history": {

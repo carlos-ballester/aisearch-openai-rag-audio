@@ -40,13 +40,23 @@ async def create_app():
         deployment=os.environ["AZURE_OPENAI_REALTIME_DEPLOYMENT"],
         voice_choice=os.environ.get("AZURE_OPENAI_REALTIME_VOICE_CHOICE") or "alloy"
         )
-    rtmt.system_message = "You are a helpful assistant. Only answer questions based on information you searched in the knowledge base, accessible with the 'search' tool. " + \
-                          "The user is listening to answers with audio, so it's *super* important that answers are as short as possible, a single sentence if at all possible. " + \
+    #rtmt.system_message = "You are a helpful assistant. Only answer questions based on information you searched in the knowledge base, accessible with the 'search' tool. " + \
+                          #"The user is listening to answers with audio, so it's *super* important that answers are as short as possible, a single sentence if at all possible. " + \
+                          #"Never read file names or source names or keys out loud. " + \
+                          #"Always use the following step-by-step instructions to respond: \n" + \
+                          #"1. Always use the 'search' tool to check the knowledge base before answering a question. \n" + \
+                          #"2. Always use the 'report_grounding' tool to report the source of information from the knowledge base. \n" + \
+                          #"3. Produce an answer that's as short as possible. If the answer isn't in the knowledge base, say you don't know."
+
+    rtmt.system_message = "You are a helpful and knowledgeable assistant. Let the user talk before speaking yourself and follow the instructions given by the user as long as they do not conflict with the instructions here. You can both answers questions based on your own knowledge of the world, which is vast and very complete, and also based on information you searched in the knowledge base, accessible with the 'search' tool, if there is relevant information there. " + \
+                          "You can listen to full conversations, involving several people, and give insights once the full conversation has finished. To do this, you just simply need to listen to the realtime audio that is coming from the user microphone. Users might chose to label or announce their names before starting to talk, and you can also use that information to provide insights tied to an individual person." + \
+                          "The user is listening to answers with audio, so it's *super* important that answers are on the short side rather than super long, a few sentences maximum. If the user interrupts you with the word stop, or someting similar in meaning, stop your answer and ask 'How can I help you next?' " + \
                           "Never read file names or source names or keys out loud. " + \
                           "Always use the following step-by-step instructions to respond: \n" + \
-                          "1. Always use the 'search' tool to check the knowledge base before answering a question. \n" + \
-                          "2. Always use the 'report_grounding' tool to report the source of information from the knowledge base. \n" + \
-                          "3. Produce an answer that's as short as possible. If the answer isn't in the knowledge base, say you don't know."
+                          "1. Always use the 'search' tool to check the knowledge base before answering a question or giving insights about a conversation. \n" + \
+                          "2. If you find results in the knowledge base, use the 'report_grounding' tool to report the source of information from the knowledge base. \n" + \
+                          "3. Produce an answer that's complete and is based on the knowledge base, if you have found a result there, or in your vast existing knowledge if not, including providing an assessment of the full audio content that was given to you in form of question or audio input. "
+
     attach_rag_tools(rtmt,
         credentials=search_credential,
         search_endpoint=os.environ.get("AZURE_SEARCH_ENDPOINT"),

@@ -1,13 +1,13 @@
 {
     "app": {
-        "title": "Talk to your data",
-        "footer": "Built with Azure AI Search + Azure OpenAI",
+        "title": "AI-powered voice assistant",
+        "footer": "Built by IMD, powered by GPT-4o and Azure",
         "stopRecording": "Stop recording",
         "startRecording": "Start recording",
         "stopConversation": "Stop conversation"
     },
     "status": {
-        "notRecordingMessage": "Ask anything about Contoso employee benefits",
+        "notRecordingMessage": "Ask me anything",
         "conversationInProgress": "Conversation in progress"
     },
     "history": {

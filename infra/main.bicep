@@ -97,7 +97,14 @@ param principalId string = ''
 
 var abbrs = loadJsonContent('abbreviations.json')
 var resourceToken = toLower(uniqueString(subscription().id, environmentName, location))
-var tags = { 'azd-env-name': environmentName }
+var tags = {
+  Environment: 'Development'
+  'Application Name': 'AI Playground VoiceAI'
+  Team: 'IT General'
+  'Business Department': 'IT Innovation'
+  'Business Owner': 'Carlos Ballester Lafuente'
+  'Tech Lead': 'Carlos Ballester Lafuente'
+}
 
 @description('Whether the deployment is running on GitHub Actions')
 param runningOnGh string = ''
